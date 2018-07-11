@@ -26,7 +26,7 @@ public class ItemCatController {
 		List<ItemCat> list = this.itemCatService.queryAll();
 
 		result.put("rows", JSONArray.toJSON(list));
-		result.put("total", list.size());
+		result.put("total",  list.size());
 		
 		return result;
 	}
