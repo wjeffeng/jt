@@ -11,7 +11,7 @@
 		<setting name="cacheEnabled" value="false" />
 	</settings>
 
-	<typeHandlers>
+	<!-- <typeHandlers>
 		<typeHandler handler="org.apache.ibatis.type.InstantTypeHandler" />
 		<typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" />
 		<typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler" />
@@ -19,7 +19,7 @@
 		<typeHandler handler="org.apache.ibatis.type.OffsetDateTimeTypeHandler" />
 		<typeHandler handler="org.apache.ibatis.type.OffsetTimeTypeHandler" />
 		<typeHandler handler="org.apache.ibatis.type.ZonedDateTimeTypeHandler" />
-	</typeHandlers>
+	</typeHandlers> -->
 	
 	<plugins>
 		<!-- 分页插件：com.github.pagehelper为PageHelper类所在包名 -->

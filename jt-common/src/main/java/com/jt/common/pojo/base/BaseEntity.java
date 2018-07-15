@@ -1,26 +1,24 @@
 package com.jt.common.pojo.base;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class BaseEntity {
 
-	private LocalDateTime updated;
-	private LocalDateTime created;
-
-	public LocalDateTime getUpdated() {
+	private Date updated;
+	private Date created;
+	public Date getUpdated() {
 		return updated;
 	}
-
-	public void setUpdated(LocalDateTime updated) {
+	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}
-
-	public LocalDateTime getCreated() {
+	public Date getCreated() {
 		return created;
 	}
-
-	public void setCreated(LocalDateTime created) {
+	public void setCreated(Date created) {
 		this.created = created;
 	}
+
+	
 
 }

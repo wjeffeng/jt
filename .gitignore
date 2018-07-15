@@ -1,5 +1,5 @@
 ##ignore this file from eclipse##
-/target/ 
+/target/*
 
 .classpath
 .project
