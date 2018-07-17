@@ -20,8 +20,8 @@ public class ItemController {
 	
 	@ResponseBody
 	@RequestMapping("/query")
-	public EasyUIResult queryItemList(Integer pageNum, Integer pageSize) {
-		List<Item> itemList = itemService.queryItemList(pageNum, pageSize);
+	public EasyUIResult queryItemList(Integer page, Integer rows) {
+		List<Item> itemList = itemService.queryItemList(page, rows);
 		return new EasyUIResult(99, itemList);
 	}
 }
