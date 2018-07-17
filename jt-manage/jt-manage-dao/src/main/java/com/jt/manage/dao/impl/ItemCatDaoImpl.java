@@ -67,4 +67,11 @@ public class ItemCatDaoImpl implements ItemCatDao{
 		return 0;
 	}
 
+	@Override
+	public List<ItemCat> queryItemList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
