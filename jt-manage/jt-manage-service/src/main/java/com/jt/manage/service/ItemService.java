@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jt.common.service.base.BaseService;
+import com.jt.common.vo.EasyUIResult;
 import com.jt.manage.dao.ItemDao;
-import com.jt.manage.entity.EasyUIResult;
 import com.jt.manage.entity.Item;
 
 @Service
