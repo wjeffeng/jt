@@ -1,4 +1,4 @@
-package com.jt.manage.dao.impl;
+/*package com.jt.manage.dao.impl;
 
 import java.util.List;
 
@@ -75,3 +75,4 @@ public class ItemCatDaoImpl implements ItemCatDao{
 
 	
 }
+*/

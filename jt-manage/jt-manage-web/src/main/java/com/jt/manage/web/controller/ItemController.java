@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jt.common.vo.EasyUIResult;
+import com.jt.common.vo.SysResult;
+import com.jt.manage.entity.Item;
 import com.jt.manage.service.ItemService;
 
 @Controller
@@ -20,5 +22,38 @@ public class ItemController {
 	public EasyUIResult queryItemList(Integer page, Integer rows) {
 		EasyUIResult result = itemService.queryItemList(page, rows);
 		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/save")
+	public SysResult saveItem(Item item){
+		try {
+			itemService.save(item);
+			return SysResult.ok();
+		} catch (Exception e) {
+			return SysResult.build(201, "新增商品出错");
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("/update")
+	public SysResult updateItem(Item item){
+		try {
+			itemService.update(item);
+			return SysResult.ok();
+		} catch (Exception e) {
+			return SysResult.build(201, "");
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("/delete")
+	public SysResult deleteItem(Long[] ids){
+		try {
+			itemService.deleteById(ids);
+			return SysResult.ok();
+		} catch (Exception e) {
+			return SysResult.build(201, "");
+		}
 	}
 }
