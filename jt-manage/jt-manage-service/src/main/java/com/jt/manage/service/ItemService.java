@@ -1,5 +1,6 @@
 package com.jt.manage.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,19 @@ public class ItemService extends BaseService<Item> {
 		List<Item> itemList = itemDao.queryItemList();
 		PageInfo<Item> pageInfo = new PageInfo<>(itemList);
 		return new EasyUIResult(pageInfo.getTotal(), pageInfo.getList());
+	}
+	
+	public void saveItem(Item item) {
+		item.setStatus(1);
+		item.setUpdated(new Date());
+		item.setCreated(item.getUpdated());
+		
+		itemDao.insertSelective(item);
+	}
+	
+	public void updateItem(Item item){
+		item.setUpdated(new Date());
+		
+		itemDao.updateByPrimaryKeySelective(item);
 	}
 }

@@ -1,47 +1,51 @@
 package com.jt.common.vo;
 
 public class PicUploadResult {
-    
-    private Integer error;
-    
-    private String url;
-    
-    private String width;
-    
-    private String height;
 
-    public Integer getError() {
-        return error;
-    }
+	private Integer status;
+	private String msg;
+	private String url;
+	private String width;
+	private String height;
 
-    public void setError(Integer error) {
-        this.error = error;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public String getMsg() {
+		return msg;
+	}
 
-    public String getWidth() {
-        return width;
-    }
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 
-    public void setWidth(String width) {
-        this.width = width;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public String getHeight() {
-        return height;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public void setHeight(String height) {
-        this.height = height;
-    }
-    
-    
+	public String getWidth() {
+		return width;
+	}
+
+	public void setWidth(String width) {
+		this.width = width;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
+	}
 
 }

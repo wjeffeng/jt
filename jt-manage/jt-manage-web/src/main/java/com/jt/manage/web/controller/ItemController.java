@@ -28,7 +28,7 @@ public class ItemController {
 	@RequestMapping("/save")
 	public SysResult saveItem(Item item){
 		try {
-			itemService.save(item);
+			itemService.saveItem(item);
 			return SysResult.ok();
 		} catch (Exception e) {
 			return SysResult.build(201, "新增商品出错");
@@ -39,7 +39,7 @@ public class ItemController {
 	@RequestMapping("/update")
 	public SysResult updateItem(Item item){
 		try {
-			itemService.update(item);
+			itemService.updateItem(item);
 			return SysResult.ok();
 		} catch (Exception e) {
 			return SysResult.build(201, "");
