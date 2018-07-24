@@ -1,4 +1,4 @@
-package com.jt.manage.dao.impl;
+/*package com.jt.manage.dao.impl;
 
 import java.util.List;
 
@@ -67,4 +67,12 @@ public class ItemCatDaoImpl implements ItemCatDao{
 		return 0;
 	}
 
+	@Override
+	public List<ItemCat> queryItemList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
+*/

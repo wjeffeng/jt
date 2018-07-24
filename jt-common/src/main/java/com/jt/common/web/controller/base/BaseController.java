@@ -1,4 +1,4 @@
-package com.jt.common.controller.base;
+package com.jt.common.web.controller.base;
 
 public abstract class BaseController {
 	
