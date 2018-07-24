@@ -2,18 +2,18 @@ package com.jt.common.vo;
 
 public class PicUploadResult {
 
-	private Integer status;
-	private String msg;
+	private Integer error=0;
+	private String msg="上传成功";
 	private String url;
 	private String width;
 	private String height;
 
-	public Integer getStatus() {
-		return status;
+	public Integer getError() {
+		return error;
 	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setError(Integer error) {
+		this.error = error;
 	}
 
 	public String getMsg() {
