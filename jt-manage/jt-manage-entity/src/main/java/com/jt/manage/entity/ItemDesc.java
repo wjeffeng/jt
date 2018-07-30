@@ -10,6 +10,7 @@ public class ItemDesc extends BaseEntity{
 	@Id
 	private long itemId;
 	private String itemDesc;
+	
 	public long getItemId() {
 		return itemId;
 	}

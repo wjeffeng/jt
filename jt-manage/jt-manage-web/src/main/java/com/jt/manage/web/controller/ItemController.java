@@ -26,9 +26,9 @@ public class ItemController {
 	
 	@ResponseBody
 	@RequestMapping("/save")
-	public SysResult saveItem(Item item){
+	public SysResult saveItem(Item item,String desc){
 		try {
-			itemService.saveItem(item);
+			itemService.saveItem(item,desc);
 			return SysResult.ok();
 		} catch (Exception e) {
 			return SysResult.build(201, "新增商品出错");
@@ -51,6 +51,17 @@ public class ItemController {
 	public SysResult deleteItem(Long[] ids){
 		try {
 			itemService.deleteById(ids);
+			return SysResult.ok();
+		} catch (Exception e) {
+			return SysResult.build(201, "");
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("/reshelf")
+	public SysResult reshelf(Long[] ids){
+		try {
+			itemService.updateStatus(1,ids);
 			return SysResult.ok();
 		} catch (Exception e) {
 			return SysResult.build(201, "");
