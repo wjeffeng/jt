@@ -42,14 +42,27 @@ public class ItemService extends BaseService<Item> {
 		itemDesc.setItemDesc(desc);
 		itemDesc.setUpdated(item.getUpdated());
 		itemDesc.setCreated(item.getCreated());
+		
 		itemDescDao.insertSelective(itemDesc);
 		
 	}
 	
-	public void updateItem(Item item){
+	public void updateItem(Item item,String desc){
 		item.setUpdated(new Date());
 		
 		itemDao.updateByPrimaryKeySelective(item);
+		
+		ItemDesc itemDesc = new ItemDesc();
+		itemDesc.setItemId(item.getId());
+		itemDesc.setItemDesc(desc);
+		itemDesc.setUpdated(item.getUpdated());
+		
+		itemDescDao.updateByPrimaryKey(itemDesc);
+	}
+	
+	public void deleteItem(Long[] ids){
+		itemDescDao.deleteByIDS(ids);
+		itemDao.deleteByIDS(ids);
 	}
 
 	public void updateStatus(int i, Long[] ids) {
@@ -59,5 +72,9 @@ public class ItemService extends BaseService<Item> {
 			item.setId(id);
 			itemDao.updateByPrimaryKeySelective(item);
 		}
+	}
+
+	public ItemDesc getItemDescById(Long id) {
+		return itemDescDao.selectByPrimaryKey(id);
 	}
 }

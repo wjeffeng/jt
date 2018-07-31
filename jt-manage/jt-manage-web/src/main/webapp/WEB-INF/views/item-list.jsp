@@ -60,15 +60,17 @@
         			$("#itemeEditForm").form("load",data);
         			
         			// 加载商品描述
-        			$.getJSON('/item/query/item/desc/'+data.id,function(_data){
+        			$.getJSON('/item/queryDesc/'+data.id,function(_data){
         				if(_data.status == 200){
         					//UM.getEditor('itemeEditDescEditor').setContent(_data.data.itemDesc, false);
         					itemEditEditor.html(_data.data.itemDesc);
+        				}else{
+        					$.messager.alert('提示','加载商品描述出错');
         				}
         			});
         			
         			//加载商品规格
-        			$.getJSON('/item/param/item/query/'+data.id,function(_data){
+        			$.getJSON('/item/quertParam/'+data.id,function(_data){
         				if(_data && _data.status == 200 && _data.data && _data.data.paramData){
         					$("#itemeEditForm .params").show();
         					$("#itemeEditForm [name=itemParams]").val(_data.data.paramData);

@@ -2,12 +2,14 @@ package com.jt.manage.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jt.common.vo.EasyUIResult;
 import com.jt.common.vo.SysResult;
 import com.jt.manage.entity.Item;
+import com.jt.manage.entity.ItemDesc;
 import com.jt.manage.service.ItemService;
 
 @Controller
@@ -37,9 +39,9 @@ public class ItemController {
 	
 	@ResponseBody
 	@RequestMapping("/update")
-	public SysResult updateItem(Item item){
+	public SysResult updateItem(Item item,String desc){
 		try {
-			itemService.updateItem(item);
+			itemService.updateItem(item,desc);
 			return SysResult.ok();
 		} catch (Exception e) {
 			return SysResult.build(201, "");
@@ -66,5 +68,13 @@ public class ItemController {
 		} catch (Exception e) {
 			return SysResult.build(201, "");
 		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("/queryDesc/{itemId}")
+	public SysResult getItemDescById(@PathVariable Long itemId){
+		ItemDesc itemDesc = itemService.getItemDescById(itemId);
+		SysResult result = SysResult.ok(itemDesc);
+		return result;
 	}
 }
