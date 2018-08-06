@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.jt.common.service.RedisService;
 import com.jt.common.service.base.BaseService;
 import com.jt.common.vo.EasyUIResult;
 import com.jt.manage.dao.ItemDao;
@@ -22,6 +23,8 @@ public class ItemService extends BaseService<Item> {
 	private ItemDao itemDao;
 	@Autowired
 	private ItemDescDao itemDescDao;
+	@Autowired
+	private RedisService redisService;
 	
 	public EasyUIResult queryItemList(Integer pageNum,Integer pageSize){
 		PageHelper.startPage(pageNum, pageSize);

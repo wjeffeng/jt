@@ -52,7 +52,7 @@ public class ItemController {
 	@RequestMapping("/delete")
 	public SysResult deleteItem(Long[] ids){
 		try {
-			itemService.deleteById(ids);
+			itemService.deleteByIds(ids);
 			return SysResult.ok();
 		} catch (Exception e) {
 			return SysResult.build(201, "");
