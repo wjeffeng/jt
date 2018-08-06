@@ -47,10 +47,7 @@ public class ItemCatController {
 	@ResponseBody
 	@RequestMapping("/list")
 	public JSON list(@RequestParam(defaultValue="0") Long id){
-		ItemCat params = new ItemCat();
-		params.setStatus(1);
-		params.setParentId(id);
-		List<ItemCat> list = this.itemCatService.list(params);
+		List<ItemCat> list = this.itemCatService.list(id);
 		return JSONUtils.dateFormat(list);
 	}
 }
