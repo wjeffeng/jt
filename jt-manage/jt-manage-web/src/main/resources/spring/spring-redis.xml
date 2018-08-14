@@ -19,7 +19,7 @@
 			type="int" />
 	</bean>
 
-	<!-- bean id="jedisShardInfo2" class="redis.clients.jedis.JedisShardInfo">
+	<bean id="jedisShardInfo2" class="redis.clients.jedis.JedisShardInfo">
 		<constructor-arg index="0" value="${redis.node2.ip}" />
 		<constructor-arg index="1" value="${redis.node2.port}"
 			type="int" />
@@ -29,7 +29,7 @@
 		<constructor-arg index="0" value="${redis.node3.ip}" />
 		<constructor-arg index="1" value="${redis.node3.port}"
 			type="int" />
-	</bean-->
+	</bean>
 
 	<!-- 定义集群连接池 -->
 	<bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool"
@@ -38,8 +38,8 @@
 		<constructor-arg index="1">
 			<list>
 				<ref bean="jedisShardInfo1" />
-				<!--ref bean="jedisShardInfo2" />
-				<ref bean="jedisShardInfo3" /-->
+				<ref bean="jedisShardInfo2" />
+				<ref bean="jedisShardInfo3" />
 			</list>
 		</constructor-arg>
 	</bean>

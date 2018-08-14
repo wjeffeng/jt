@@ -1,4 +1,4 @@
-package com.jt.common.service;
+/*package com.jt.common.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +31,13 @@ public class HttpClientService {
     @Autowired
     private RequestConfig requestConfig;
 
-    /**
+    *//**
      * 执行get请求
      * 
      * @param url
      * @return
      * @throws Exception
-     */
+     *//*
     public String doGet(String url,Map<String, String> params,String encode) throws Exception {
         LOGGER.info("执行GET请求，URL = {}", url);
         if(null != params){
@@ -78,26 +78,26 @@ public class HttpClientService {
         return this.doGet(url, null, null);
     }
 
-    /**
+    *//**
      * 带参数的get请求
      * 
      * @param url
      * @param params
      * @return
      * @throws Exception
-     */
+     *//*
     public String doGet(String url, Map<String, String> params) throws Exception {
         return this.doGet(url, params, null);
     }
 
-    /**
+    *//**
      * 执行POST请求
      * 
      * @param url
      * @param params
      * @return
      * @throws Exception
-     */
+     *//*
     public String doPost(String url, Map<String, String> params,String encode) throws Exception {
         // 创建http POST请求
         HttpPost httpPost = new HttpPost(url);
@@ -138,14 +138,14 @@ public class HttpClientService {
     }
 
 
-    /**
+    *//**
      * 执行POST请求
      * 
      * @param url
      * @param params
      * @return
      * @throws Exception
-     */
+     *//*
     public String doPost(String url, Map<String, String> params) throws Exception {
         // 创建http POST请求
         HttpPost httpPost = new HttpPost(url);
@@ -208,3 +208,4 @@ public class HttpClientService {
     }
 
 }
+*/

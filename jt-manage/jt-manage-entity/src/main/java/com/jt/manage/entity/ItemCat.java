@@ -6,9 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jt.common.pojo.base.BaseEntity;
 
-
+@JsonIgnoreProperties(ignoreUnknown=true)
 @Table(name="tb_item_cat")	//表和类的映射
 public class ItemCat extends BaseEntity{
 	@Id	//标识主键
