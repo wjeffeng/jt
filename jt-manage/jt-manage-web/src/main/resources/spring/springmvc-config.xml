@@ -17,8 +17,7 @@
 			</bean>
 
 			<!-- 定义json转化器，支持json跨域 -->
-			<bean
-				class="com.jt.common.spring.exetend.jackson.CallbackMappingJackson2HttpMessageConverter">
+			<bean class="com.jt.common.spring.exetend.jackson.CallbackMappingJackson2HttpMessageConverter">
 				<!-- 跨域请求中的请求参数名 -->
 				<property name="callbackName" value="callback"></property>
 			</bean>

@@ -2,16 +2,18 @@ package com.jt.manage.entity;
 
 import java.util.List;
 
-public class ItemCatResult {
-	
-	private List<ItemCatData> items;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-	public List<ItemCatData> getItems() {
-		return items;
+public class ItemCatResult {
+	@JsonProperty("data")
+	private List<ItemCatData> itemCatDataList;
+
+	public List<ItemCatData> getItemCatDataList() {
+		return itemCatDataList;
 	}
 
-	public void setItems(List<ItemCatData> items) {
-		this.items = items;
+	public void setItemCatDataList(List<ItemCatData> itemCatDataList) {
+		this.itemCatDataList = itemCatDataList;
 	}
 
 }

@@ -2,10 +2,15 @@ package com.jt.manage.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 //一、二级菜单
 public class ItemCatData {
+	@JsonProperty("u")
 	private String url;
+	@JsonProperty("n")
 	private String name;
+	@JsonProperty("i")
 	private List<?> items;
 
 	public String getUrl() {

@@ -40,7 +40,6 @@ public class CallbackMappingJackson2HttpMessageConverter extends MappingJackson2
                 throw new HttpMessageNotWritableException("Could not write JSON: " + ex.getMessage(), ex);
             }
         }
-
     }
 
     public String getCallbackName() {
