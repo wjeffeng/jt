@@ -11,20 +11,20 @@ import com.jt.manage.entity.ItemDesc;
 import com.jt.manage.service.ItemService;
 
 @Controller
-@RequestMapping("/web")
+@RequestMapping("/web/item")
 public class WebItemController {
 
 	@Autowired
 	private ItemService itemService;
 	
 	@ResponseBody
-	@RequestMapping("/item/{itemId}")
+	@RequestMapping("/{itemId}")
 	public Item getItem(@PathVariable Long itemId){
 		return itemService.queryById(itemId);
 		
 	}
 	@ResponseBody
-	@RequestMapping("/itemDesc/{itemId}")
+	@RequestMapping("/desc/{itemId}")
 	public ItemDesc getItemDesc(@PathVariable Long itemId){
 		return itemService.getItemDescById(itemId);
 		

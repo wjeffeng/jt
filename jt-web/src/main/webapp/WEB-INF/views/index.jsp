@@ -108,10 +108,16 @@ pageConfig.DATA_MScroll =[
     },
     {
         "alt": "",
+        "href": "http://front.jt.com/web/item/1474391946.html",
+        "index": 6,
+        "src": "http://image.jt.com/images/2018/07/30/1532939015159788.png",
+        "ext": "1"
+        
+    	/* "alt": "",
         "href": "http://c.fa.jd.com/adclick?sid=2&cid=601&aid=3679&bid=4071&unit=36632&advid=109125&guv=&url=http://sale.jd.com/act/azgJFt1nOK.html",
         "index": 6,
         "src": "http://img13.360buyimg.com/da/jfs/t349/295/1695471355/9379/2325a0a1/54407591Nb4735d70.jpg",
-        "ext": "1"
+        "ext": "1" */
     },
     {
         "alt": "",
@@ -157,7 +163,7 @@ pageConfig.DATA_MScroll =[
     var f = a.length, g = c.length;
     for (var i = 0; i < 18 - f; i++) {
         if (i > g - 1) {
-            continue
+            continue;
         }
         a.push(c.shift())
     }
