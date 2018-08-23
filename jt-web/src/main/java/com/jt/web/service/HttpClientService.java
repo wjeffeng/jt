@@ -1,4 +1,4 @@
-package com.jt.common.service;
+package com.jt.web.service;
 
 import java.util.ArrayList;
 import java.util.List;

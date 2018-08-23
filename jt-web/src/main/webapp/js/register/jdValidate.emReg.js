@@ -113,7 +113,7 @@ function reg() {
 		var _phone = $("#personRegForm [name=phone]").val();
 		$.ajax({
 			type : "POST",
-			url : "/service/user/doRegister",
+			url : "http://sso.jt.com/service/user/signUp",
 			contentType : "application/x-www-form-urlencoded; charset=utf-8",
 			data : {password:_password,username:_username,phone:_phone},
 			dataType : 'json',

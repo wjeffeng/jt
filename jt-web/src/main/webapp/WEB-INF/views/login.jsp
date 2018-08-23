@@ -44,7 +44,7 @@
 <body>
 <div class="w">
     <div id="logo">
-    	<a href="http://www.jt.com/" clstag="passport|keycount|login|01">
+    	<a href="http://front.jt.com/" clstag="passport|keycount|login|01">
     		<img src="/images/jt-logo.png" alt="京淘" width="170" height="60"/>
     	</a><b></b>
    	</div>
@@ -174,7 +174,7 @@
                 </div>
         </div>
         <div class="free-regist">
-            <span><a href="http://www.jt.com/user/register.html" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
+            <span><a href="http://front.jt.com/user/register.html" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
         </div>
     </div>
 </form>
