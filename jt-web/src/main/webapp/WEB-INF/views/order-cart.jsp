@@ -46,7 +46,7 @@
 		<input type="hidden" name="orderShipping.receiverAddress" value="清华大学"/>
 	</form>
 	<div class="w w1 header clearfix">
-		<div id="logo"><a href="http://www.jt.com/"><img src="/images/jt-logo.png"  alt="京淘商城" /></a></div>
+		<div id="logo"><a href="http://front.jt.com/"><img src="/images/jt-logo.png"  alt="京淘商城" /></a></div>
 		<div class="progress clearfix">
 			<ul class="progress-2">
 				<li class="s1"><b></b>1.我的购物车</li>
@@ -223,10 +223,10 @@
 				  <tr>
 				    <td class="fore1">
 					   <div class="p-goods">
-						  <div class="p-img"><a href="http://www.jt.com/item/${cart.itemId}.html" target='_blank'><img width="52" height="52" src="${cart.itemImage}"></a></div>
+						  <div class="p-img"><a href="http://front.jt.com/item/${cart.itemId}.html" target='_blank'><img width="52" height="52" src="${cart.itemImage}"></a></div>
 							 <div class="p-detail">
 								<div class="p-name">
-									<a href="http://www.jt.com/item/${cart.itemId}.html" target='_blank'>
+									<a href="http://front.jt.com/item/${cart.itemId}.html" target='_blank'>
 										${cart.itemTitle }
 								    </a>
 								</div>

@@ -47,6 +47,7 @@ public class UserService extends BaseService<User>{
 
 	public String queryLogin(String name,String pwd) {
 		User temp = new User();
+		temp.setUsername(name);
 		User curUser = queryByWhere(temp);
 		if(null!=curUser){
 			String encryptedPwd = DigestUtils.md5Hex(pwd);

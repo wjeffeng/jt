@@ -246,7 +246,7 @@
 					<li id="choose-btns">
 						<div id="choose-btn-append" class="btn">
 							<a class="btn-append " id="InitCartUrl"
-								href="http://www.jt.com/cart/add/${item.id}.html"
+								href="http://front.jt.com/cart/add/${item.id}.html"
 								clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
 						</div>
 						<div id="choose-btn-easybuy" class="btn"></div>

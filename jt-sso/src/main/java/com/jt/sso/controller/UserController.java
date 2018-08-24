@@ -2,6 +2,7 @@ package com.jt.sso.controller;
 
 import java.util.Date;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,22 +42,23 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/singUp")
-	public SysResult singUp(User user) {
+	@RequestMapping("/doSignUp")
+	public SysResult signUp(User user) {
 		//TODO 校验
 		user.setCreated(new Date());
 		user.setUpdated(user.getCreated());
 		user.setEmail("temp_"+user.getPhone()+"@qq.com");
+		user.setPassword(DigestUtils.md5Hex(user.getEmail()));
 		try {
 			this.userService.saveSelective(user);
-			return SysResult.build(200, user.getUsername());
+			return SysResult.build(200, "注册失败",user.getUsername());
 		} catch (Exception e) {
 			return SysResult.build(201,"参数异常");
 		}
 	}
 	
 	@ResponseBody
-	@RequestMapping("/login")
+	@RequestMapping("/doLogin")
 	public SysResult login(User user) {
 		try {
 			String ticket = this.userService.queryLogin(user.getUsername(),user.getPassword());
@@ -69,7 +71,6 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping("/checkTicket/{ticket}")
 	public SysResult checkTicket(@PathVariable String ticket) {
-		
 		try {
 			String jsonData = this.redisService.get(ticket);
 			return SysResult.ok(jsonData);

@@ -44,6 +44,10 @@
 		<servlet-name>springmvc-web</servlet-name>
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springmvc-web</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 	<!-- 防止springMVC框架返回json时和html冲突报 406 错误 -->
 	<servlet-mapping>
 		<servlet-name>springmvc-web</servlet-name>
@@ -52,7 +56,6 @@
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 </web-app>

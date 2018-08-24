@@ -1,18 +1,19 @@
 var TT = JT = {
 	checkLogin : function(){
 		var _ticket = $.cookie("JT_TICKET");
+		console.log('ticket:'+_ticket);
 		if(!_ticket){
 			return ;
 		}
 		//当dataType类型为jsonp时，jQuery就会自动在请求链接上增加一个callback的参数
 		$.ajax({
-			url : "http://sso.jt.com/user/query/" + _ticket,
+			url : "http://sso.jt.com/user/checkTicket/" + _ticket,
 			dataType : "jsonp",
 			type : "GET",
 			success : function(data){
 				if(data.status == 200){
 					var _data = JSON.parse(data.data);
-					var html =_data.username+"，欢迎来到京淘！<a href=\"http://www.jt.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
+					var html =_data.username+"，欢迎来到京淘！<a href=\"http://front.jt.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
 					$("#loginbar").html(html);
 				}
 			}
