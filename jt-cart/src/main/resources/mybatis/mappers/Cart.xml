@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jt.cart.dao.CartDao">
+	<sql id="table"> tb_cart </sql>
+
+	<!-- 按参数查询（分页） -->
+	<select id="updateNum" parameterType="java.util.Map" resultType="Integer">
+		update
+		<include refid="table" />
+		set num = #{num}
+		<where>
+			<if test="userId != null and userId !=''">and user_id =#{userId}</if>
+			<if test="itemId != null and itemId !=''">and item_id =#{itemId}</if>
+		</where>
+	</select>
+
+</mapper>

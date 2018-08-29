@@ -13,7 +13,7 @@ var TT = JT = {
 			success : function(data){
 				if(data.status == 200){
 					var _data = JSON.parse(data.data);
-					var html =_data.username+"，欢迎来到京淘！<a href=\"http://front.jt.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
+					var html =_data.username+"，欢迎来到京淘！<a href=\"http://front.jt.com/user/doLogout.html\" class=\"link-logout\">[退出]</a>";
 					$("#loginbar").html(html);
 				}
 			}

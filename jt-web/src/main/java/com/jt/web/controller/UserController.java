@@ -53,4 +53,15 @@ public class UserController {
 			return SysResult.build(201, "参数异常");
 		}
 	}
+	
+	@RequestMapping("/doLogout")
+	public String doLogout(HttpServletRequest request,HttpServletResponse response){
+		CookieUtils.deleteCookie(request, response, "JT_TICKET");
+		return "index";
+	}
+	
+	@RequestMapping("/cart")
+	public String toCart(){
+		return "cart";
+	}
 }
