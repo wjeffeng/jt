@@ -26,6 +26,7 @@ public class CartService {
 				obj = MAPPER.readValue(cartListJson.traverse(),
 						MAPPER.getTypeFactory().constructCollectionType(List.class, Cart.class));
 			}
+			return (List<Cart>) obj;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
