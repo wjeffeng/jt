@@ -49,12 +49,15 @@ public class UserService extends BaseService<User>{
 		User temp = new User();
 		temp.setUsername(name);
 		User curUser = queryByWhere(temp);
+		User cacheUser = new User();
 		if(null!=curUser){
 			String encryptedPwd = DigestUtils.md5Hex(pwd);
 			if(encryptedPwd.equals(curUser.getPassword())){
 				String ticket = DigestUtils.md5Hex(System.currentTimeMillis()+curUser.getUsername()+curUser.getId());
 				try {
-					redisService.set(ticket, MAPPER.writeValueAsString(curUser),60*60*24*7);
+					cacheUser.setUsername(curUser.getUsername());
+					cacheUser.setPhone(curUser.getPhone());
+					redisService.set(ticket, MAPPER.writeValueAsString(cacheUser),60*60*24*7);
 					return ticket;
 				} catch (JsonProcessingException e) {
 					e.printStackTrace();

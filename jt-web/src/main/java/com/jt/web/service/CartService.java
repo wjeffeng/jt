@@ -16,8 +16,9 @@ public class CartService {
 	private HttpClientService httpClientService;
 	
 	private static final ObjectMapper MAPPER = new ObjectMapper();
+	
 	public List<Cart> show(Long userId){
-		String url = "http://cart.jt.com/query/"+userId;
+		String url = "http://cart.jt.com/cart/query/"+userId;
 		try {
 			String jsonData = httpClientService.doGet(url);
 			JsonNode cartListJson = MAPPER.readTree(jsonData).get("data");

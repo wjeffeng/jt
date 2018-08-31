@@ -73,7 +73,7 @@
 		                	<span class="promise411 promise411_11345721" id="promise411_11345721"></span>
 		                </div>    
 		            </div>
-		            <div class="cell p-price"><span class="price">¥<fmt:formatNumber groupingUsed="false" value="${cart.itemPrice / 100}" maxFractionDigits="2" minFractionDigits="2"/> </span></div>
+		            <div class="cell p-price"><span class="price">¥<fmt:formatNumber groupingUsed="false" value="${cart.itemPrice / 1000}" maxFractionDigits="2" minFractionDigits="2"/> </span></div>
 		            <div class="cell p-promotion">
 		            </div>
 		            <div class="cell p-inventory stock-11345721">有货</div>
@@ -93,7 +93,7 @@
     </div><!-- product-list结束 -->
           <div class="cart-toolbar clearfix">
             <div class="total fr">
-                <p><span class="totalSkuPrice">¥<fmt:formatNumber value="${totalPrice / 100}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/></span>总计：</p>
+                <p><span class="totalSkuPrice">¥<fmt:formatNumber value="${totalPrice / 1000}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/></span>总计：</p>
                 <p><span id="totalRePrice">- ¥0.00</span>优惠：</p>
             </div>
             <div class="amout fr"><span id="selectedCount">1</span> 件商品</div>
@@ -154,5 +154,7 @@
 <!-- 购物车相关业务 -->
 <script type="text/javascript" src="/js/cart.js"></script>
 <script type="text/javascript" src="/js/jquery.price_format.2.0.min.js"></script>
-
+<script type="text/javascript">
+	
+</script>
 </html>
