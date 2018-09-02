@@ -29,6 +29,7 @@ public class TestJedis {
 		for (int i = 0; i <= 9; i++) {
 			jedis.set("name"+i, "Jeff"+i);
 		}
+		jedis.close();
 	}
 }
 

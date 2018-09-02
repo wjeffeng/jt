@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jt.common.vo.SysResult;
+import com.jt.web.annotation.CheckSign;
 import com.jt.web.entity.Cart;
 import com.jt.web.service.CartService;
 
@@ -28,9 +30,21 @@ public class CartController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/update/num/{userId}/{itemId}")
+	@RequestMapping("/update/num/{userId}/{itemId}/{num}")
 	public SysResult updateNum(Cart cart){
-		
-		return null;
+		return cartService.updateNum(cart);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/delete/{userId}/{itemId}")
+	public SysResult deleteCart(Cart cart){
+		return cartService.deleteCart(cart);
+	}
+	
+	@CheckSign
+	@ResponseBody
+	@RequestMapping("/test/{sign}")
+	public SysResult test(@PathVariable String sign){
+		return SysResult.ok(sign);
 	}
 }

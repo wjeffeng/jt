@@ -38,13 +38,24 @@ public class CartController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/update/num/{userId}/{itemId}/{num}")
+	@RequestMapping("/update/num")
 	public SysResult updateNum(Cart cart){
 		try {
 			cartService.updateNum(cart);
-			return SysResult.build(200,"修改购物车成功");
+			return SysResult.build(200,"修改购物车商品成功");
 		} catch (Exception e) {
-			return SysResult.build(201,"修改购物车失败");
+			return SysResult.build(201,"修改购物车商品失败");
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("/deleteCart")
+	public SysResult deleteCart(Cart cart){
+		try {
+			cartService.deleteByWhere(cart);
+			return SysResult.build(200,"删除购物车商品成功");
+		} catch (Exception e) {
+			return SysResult.build(201,"删除购物车商品失败");
 		}
 	}
 }

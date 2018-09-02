@@ -9,8 +9,8 @@
 		<include refid="table" />
 		set num = #{num}
 		<where>
-			<if test="userId != null and userId !=''">and user_id =#{userId}</if>
-			<if test="itemId != null and itemId !=''">and item_id =#{itemId}</if>
+			<if test="user_id != null and user_id !=''">and user_id =#{user_id}</if>
+			<if test="item_id != null and item_id !=''">and item_id =#{item_id}</if>
 		</where>
 	</select>
 
