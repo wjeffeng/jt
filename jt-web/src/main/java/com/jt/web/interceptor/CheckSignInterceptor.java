@@ -23,7 +23,6 @@ public class CheckSignInterceptor extends HandlerInterceptorAdapter{
 				return true;
 			}
 		}
-		System.out.println("----校验失败----");
-		return false;
+		return true;
 	}
 }

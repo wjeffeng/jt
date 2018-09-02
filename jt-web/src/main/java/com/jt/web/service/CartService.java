@@ -43,7 +43,7 @@ public class CartService {
 				+"&num="+cart.getNum();
 		try {
 			String jsonData = httpClientService.doGet(url);
-			JsonNode result = MAPPER.readTree(jsonData).get("data");
+			JsonNode result = MAPPER.readTree(jsonData);
 			return SysResult.build(result.get("status").asInt(), result.get("msg").asText());
 		} catch (Exception e) {
 			e.printStackTrace();
