@@ -1,6 +1,8 @@
 package com.jt.web.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,15 +11,17 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.vo.SysResult;
 import com.jt.web.entity.Cart;
+import com.jt.web.entity.Item;
 
 @Service
 public class CartService {
 
 	@Autowired
 	private HttpClientService httpClientService;
-	public static final String domainName = "http://cart.jt.com"; 
 	
 	private static final ObjectMapper MAPPER = new ObjectMapper();
+	
+	public static final String domainName = "http://cart.jt.com"; 
 	
 	public List<Cart> show(Long userId){
 		String url = domainName+"/cart/query/"+userId;
@@ -37,7 +41,7 @@ public class CartService {
 	}
 
 	public SysResult updateNum(Cart cart) {
-		String url =  domainName+"/cart/update/num?"
+		String url = domainName+"/cart/update/num?"
 				+"userId="+cart.getUserId()
 				+"&itemId="+cart.getItemId()
 				+"&num="+cart.getNum();
@@ -48,20 +52,36 @@ public class CartService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return SysResult.build(201, "");
 	}
 
 	public SysResult deleteCart(Cart cart) {
-		String url =  domainName+"/deleteCart?"
+		String url = domainName+"/cart/deleteCart?"
 				+"userId="+cart.getUserId()
 				+"&itemId="+cart.getItemId();
 		try {
 			String jsonData = httpClientService.doGet(url);
-			JsonNode result = MAPPER.readTree(jsonData).get("data");
+			JsonNode result = MAPPER.readTree(jsonData);
 			return SysResult.build(result.get("status").asInt(), result.get("msg").asText());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return SysResult.build(201, "");
+	}
+
+	public SysResult addCart(Cart cart) {
+		String url = domainName+"/cart/addCart";
+		Map<String,String> params = new HashMap<>();
+		params.put("itemId", cart.getItemId().toString());
+		//params.put("userId", cart.getUserId().toString());
+		params.put("num", cart.getNum().toString());
+		try {
+			String jsonData = httpClientService.doPost(url, params);
+			JsonNode result = MAPPER.readTree(jsonData);
+			return SysResult.build(result.get("status").asInt(), result.get("msg").asText());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return SysResult.build(201, "");
 	}
 }

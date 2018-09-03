@@ -27,10 +27,10 @@ public class CartController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/save")
-	public SysResult saveCart(Cart cart){
+	@RequestMapping("/addCart")
+	public SysResult addCart(Cart cart){
 		try {
-			cartService.saveCart(cart);
+			cartService.addCart(cart);
 			return SysResult.build(200,"保存到购物车成功");
 		} catch (Exception e) {
 			return SysResult.build(201,"保存到购物车失败");

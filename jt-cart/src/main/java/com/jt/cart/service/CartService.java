@@ -26,7 +26,7 @@ public class CartService extends BaseService<Cart>{
 	}
 
 	// 保存商品到购物车
-	public Integer saveCart(Cart cart){
+	public Integer addCart(Cart cart){
 		//判断此用户的此商品是否存在
 		Cart param = new Cart();
 		param.setUserId(cart.getUserId());

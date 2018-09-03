@@ -11,7 +11,7 @@ import com.jt.web.entity.ItemDesc;
 import com.jt.web.service.ItemService;
 
 @Controller
-@RequestMapping("/web/item")
+@RequestMapping("/item")
 public class ItemController {
 
 	@Autowired

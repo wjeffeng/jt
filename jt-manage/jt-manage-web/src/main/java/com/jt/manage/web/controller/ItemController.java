@@ -77,4 +77,10 @@ public class ItemController {
 		SysResult result = SysResult.ok(itemDesc);
 		return result;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/queryById")
+	public SysResult getItemById(Long id){
+		return SysResult.ok(itemService.queryById(id));
+	}
 }

@@ -38,6 +38,12 @@
 			HM : '0'
 		}
 	};
+	
+	function addCart(){
+		var url = "http://front.jt.com/cart/add";
+		document.forms[0].action = url;
+		document.forms[0].submit();
+	}
 </script>
 </head>
 <body version="140120">
@@ -238,6 +244,13 @@
 									onclick="setAmount.add('#buy-num')">增加数量</a> <input
 									class="text" id="buy-num" value="1"
 									onkeyup="setAmount.modify('#buy-num');" />
+			<form id="cartForm" method="post">
+				<%-- <input type="hidden" name="userId" value="${}"></input> --%>
+				<input type="hidden" name="itemId" value="${item.id }"></input>
+				<input type="hidden" name="itemTitle" value="${item.title }"></input>
+				<input type="hidden" name="itemImage" value="${item.images[0] }"></input>
+				<input type="hidden" name="itemPrice" value="${item.price }"></input>				
+			</from>
 							</div>
 						</div>
 					</li>
@@ -246,7 +259,7 @@
 					<li id="choose-btns">
 						<div id="choose-btn-append" class="btn">
 							<a class="btn-append " id="InitCartUrl"
-								href="http://front.jt.com/cart/add/${item.id}.html"
+								onclick="addCart()"
 								clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
 						</div>
 						<div id="choose-btn-easybuy" class="btn"></div>

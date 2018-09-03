@@ -46,6 +46,7 @@ public class UserController {
 		String ticket = null;
 		try {
 			ticket = userService.doLogin(user);
+			request.getHeader("referer");
 			CookieUtils.setCookie(request, response, "JT_TICKET", ticket);
 			return SysResult.ok(ticket);
 		} catch (Exception e) {
@@ -58,10 +59,5 @@ public class UserController {
 	public String doLogout(HttpServletRequest request,HttpServletResponse response){
 		CookieUtils.deleteCookie(request, response, "JT_TICKET");
 		return "index";
-	}
-	
-	@RequestMapping("/cart")
-	public String toCart(){
-		return "cart";
 	}
 }
