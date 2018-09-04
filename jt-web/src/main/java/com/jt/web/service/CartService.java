@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.vo.SysResult;
 import com.jt.web.entity.Cart;
-import com.jt.web.entity.Item;
 
 @Service
 public class CartService {
@@ -23,6 +22,7 @@ public class CartService {
 	
 	public static final String domainName = "http://cart.jt.com"; 
 	
+	@SuppressWarnings("unchecked")
 	public List<Cart> show(Long userId){
 		String url = domainName+"/cart/query/"+userId;
 		try {
@@ -73,10 +73,13 @@ public class CartService {
 		String url = domainName+"/cart/addCart";
 		Map<String,String> params = new HashMap<>();
 		params.put("itemId", cart.getItemId().toString());
-		//params.put("userId", cart.getUserId().toString());
+		params.put("userId", cart.getUserId().toString());
 		params.put("num", cart.getNum().toString());
+		params.put("itemTitle", cart.getItemTitle());
+		params.put("itemPrice", cart.getItemPrice().toString());
+		params.put("itemImage", cart.getItemImage());
 		try {
-			String jsonData = httpClientService.doPost(url, params);
+			String jsonData = httpClientService.doPost(url, params,"utf-8");
 			JsonNode result = MAPPER.readTree(jsonData);
 			return SysResult.build(result.get("status").asInt(), result.get("msg").asText());
 		} catch (Exception e) {

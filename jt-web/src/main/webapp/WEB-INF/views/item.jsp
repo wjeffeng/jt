@@ -40,10 +40,27 @@
 	};
 	
 	function addCart(){
-		var url = "http://front.jt.com/cart/add";
+		/* var url = "http://front.jt.com/cart/add";
 		document.forms[0].action = url;
-		document.forms[0].submit();
+		document.forms[0].submit(); */
+		
+		$.ajax({
+			url:'http://front.jt.com/cart/add',
+			type:'post',
+			data:$('#cartForm').serialize(),
+			dataType:'json',
+			success:function(data){
+				if(data){
+					alert(data.msg);
+				}
+			},
+			error:function(data){
+				alert('请求失败')
+			}
+		});
 	}
+	
+	
 </script>
 </head>
 <body version="140120">
@@ -241,11 +258,9 @@
 								<a class="btn-reduce" href="javascript:;"
 									onclick="setAmount.reduce('#buy-num')">减少数量</a> <a
 									class="btn-add" href="javascript:;"
-									onclick="setAmount.add('#buy-num')">增加数量</a> <input
-									class="text" id="buy-num" value="1"
-									onkeyup="setAmount.modify('#buy-num');" />
+									onclick="setAmount.add('#buy-num')">增加数量</a>
 			<form id="cartForm" method="post">
-				<%-- <input type="hidden" name="userId" value="${}"></input> --%>
+			    <input class="text" name="num" id="buy-num" value="1" onkeyup="setAmount.modify('#buy-num');" />
 				<input type="hidden" name="itemId" value="${item.id }"></input>
 				<input type="hidden" name="itemTitle" value="${item.title }"></input>
 				<input type="hidden" name="itemImage" value="${item.images[0] }"></input>

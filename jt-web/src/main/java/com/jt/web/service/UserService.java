@@ -1,20 +1,13 @@
 package com.jt.web.service;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jt.common.service.RedisService;
-import com.jt.common.util.CookieUtils;
 import com.jt.web.entity.User;
 
 @Service
@@ -22,8 +15,6 @@ public class UserService {
 	
 	@Autowired
 	private HttpClientService httpClientService;
-	@Autowired
-	private RedisService redisService;
 
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 	
@@ -61,15 +52,18 @@ public class UserService {
 		return ticket;
 	}
 	
-	public User getCurrentUser(HttpServletRequest request){
-		String ticket = CookieUtils.getCookieValue(request, "JT_TICKET");
-		String userData = redisService.get(ticket);
+	public User getCurrentUser(String ticket){
+		String url = "http://sso.jt.com/user/query/checkTicket/"+ticket;
+		String jsonData;
+		JsonNode userData;
 		try {
-			User user = MAPPER.readValue(userData, User.class);
+			jsonData = httpClientService.doGet(url);
+			userData = MAPPER.readTree(jsonData).get("data");
+			User user = MAPPER.readValue(userData.asText(), User.class);
 			if(user!=null){
 				return user;
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

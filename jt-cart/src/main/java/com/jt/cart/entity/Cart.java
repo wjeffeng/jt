@@ -24,8 +24,7 @@ public class Cart implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	public static final String FIELD_ID = "id";
 	public static final String FIELD_USER_ID = "user_id";
 	public static final String FIELD_ITEM_ID = "item_id";
@@ -36,6 +35,8 @@ public class Cart implements Serializable {
 	public static final String FIELD_CREATED = "created";
 	public static final String FIELD_UPDATED = "updated";
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; //自增ID
 	private Long userId; //用户ID
 	private Long itemId; //商品ID

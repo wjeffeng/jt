@@ -55,9 +55,10 @@ public class UserService extends BaseService<User>{
 			if(encryptedPwd.equals(curUser.getPassword())){
 				String ticket = DigestUtils.md5Hex(System.currentTimeMillis()+curUser.getUsername()+curUser.getId());
 				try {
+					cacheUser.setId(curUser.getId());
 					cacheUser.setUsername(curUser.getUsername());
 					cacheUser.setPhone(curUser.getPhone());
-					redisService.set(ticket, MAPPER.writeValueAsString(cacheUser),60*60*24*7);
+					redisService.set(ticket, MAPPER.writeValueAsString(cacheUser),60*60*3);
 					return ticket;
 				} catch (JsonProcessingException e) {
 					e.printStackTrace();
