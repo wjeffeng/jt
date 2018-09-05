@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jt.common.pojo.base.BaseEntity;
 
 @Table(name="tb_user")
@@ -16,6 +17,8 @@ public class User extends BaseEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public static final String FIELD_ID = "id";
 	public static final String FIELD_USERNAME = "username";
+	
+	@JsonIgnore
 	public static final String FIELD_PASSWORD = "password";
 	public static final String FIELD_PHONE = "phone";
 	public static final String FIELD_EMAIL = "email";

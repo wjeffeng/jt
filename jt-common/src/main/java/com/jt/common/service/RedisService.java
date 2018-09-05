@@ -43,7 +43,6 @@ public class RedisService {
             public String execute(ShardedJedis shardedJedis) {
                 return shardedJedis.set(key, value);
             }
-
         });
     }
 
@@ -63,7 +62,6 @@ public class RedisService {
                 shardedJedis.expire(key, seconds);//设置生存时间
                 return result;
             }
-
         });
     }
 
@@ -79,7 +77,6 @@ public class RedisService {
             public String execute(ShardedJedis shardedJedis) {
                 return shardedJedis.get(key);
             }
-
         });
     }
 
@@ -96,7 +93,6 @@ public class RedisService {
             public Long execute(ShardedJedis shardedJedis) {
                 return shardedJedis.expire(key, seconds);
             }
-
         });
     }
 
