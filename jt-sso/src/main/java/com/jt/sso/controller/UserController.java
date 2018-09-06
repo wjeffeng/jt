@@ -51,7 +51,7 @@ public class UserController {
 		user.setPassword(DigestUtils.md5Hex(user.getEmail()));
 		try {
 			this.userService.saveSelective(user);
-			return SysResult.build(200, "注册失败",user.getUsername());
+			return SysResult.build(200, "注册成功",user.getUsername());
 		} catch (Exception e) {
 			return SysResult.build(201,"参数异常");
 		}
