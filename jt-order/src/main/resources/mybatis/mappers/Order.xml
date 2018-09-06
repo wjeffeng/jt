@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jt.sso.dao.OrderDao">
-	<sql id="table"> tb_user </sql>
+<mapper namespace="com.jt.order.dao.OrderDao">
+	<sql id="table"> tb_order </sql>
+	
+	<resultMap type="Order" id="orderMap" autoMapping="true">
+		<id property="orderId" column="order_id"/>
+		
+		<!-- 订单和物流一对一，必须放在前面 -->
+		<association property="orderShipping" select="" javaType="OrderShipping" column="order_id">
+			<id property="orderId" column="order_id"></id>
+		</association>
+		
+		<!-- 订单和商品一对多 -->
+		<collection property="orderItems" select="" javaType="arrayList" ofType="OrderItem"
+		column="order_id">
+			<id property="itemId" column="item_id"/>
+			<id property="orderId" column="order_id"/>
+		</collection>
+	</resultMap>
+	
+	<!-- 按订单id查询  -->
+	<select id="getOrder" parameterType="string" resultMap="orderMap">
+		SELECT*FROM
+			<include refid="table"/>
+		WHERE order_id=#{orderId}
+	</select>
+	
+	<!-- 订单对应物流信息 -->
+	<select id="getOrderShippingByOrderId" parameterType="string" resultType="OrderShipping">
+		SELECT*FROM
+			tb_order_shipping 
+		WHERE order_id = #{orderId}
+	</select>
+	
+	<!-- 订单对应的商品信息 -->
+	<select id="getOrderItemByOrderId" parameterType="string" resultType="OrderItem">
+		SELECT*FROM
+			tb_order_item 
+		WHERE order_id = #{orderId}
+	</select>
+	
+	<!--  -->
+	<select id="create" parameterType="Order">
+		INSERT INTO <include refid="table" />
+		(order_id, payment, payment_type, post_fee, status, create_time, update_time, payment_time, consign_time, end_time, close_time, shipping_name, shipping_code, user_id, buyer_message, buyer_nick, buyer_rate
+		) VALUES(#{orderId}, #{payment}, #{paymentType}, #{postFee}, #{status}, #{createTime}, #{updateTime}, #{paymentTime}, #{consignTime}, #{endTime}, #{closeTime}, #{shippingName}, #{shippingCode}, #{userId}, #{buyerMessage}, #{buyerNick}, #{buyerRate}
+		);
+		INSERT INTO tb_order_shipping
+		(order_id, receiver_name, receiver_phone, receiver_mobile, receiver_state, receiver_city, receiver_district, receiver_address, receiver_zip, created, updated
+		) VALUES(#{orderId}, #{receiverName}, #{receiverPhone}, #{receiverMobile}, #{receiverState}, #{receiverCity}, #{receiverDistrict}, #{receiverAddress}, #{receiverZip}, #{created}, #{updated}
+		);
+		INSERT INTO tb_order_item
+		(item_id, order_id, num, title, price, total_fee, pic_path
+		) VALUES
+		<foreach collection="orderItems" item="item" separator=",">
+			(#{item.itemId}, #{item.orderId}, #{item.num}, #{item.title}, #{item.price}, #{item.totalFee}, #{item.picPath})
+		</foreach>;
+	</select>
 
 	<!-- 按参数查询（分页） -->
 	<select id="check" parameterType="java.util.Map" resultType="Integer">

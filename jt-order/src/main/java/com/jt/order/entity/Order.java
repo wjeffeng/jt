@@ -1,6 +1,7 @@
 package com.jt.order.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -27,6 +28,9 @@ public class Order extends BaseEntity {
 	public static final String FIELD_BUYER_MESSAGE = "buyer_message";
 	public static final String FIELD_BUYER_NICK = "buyer_nick";
 	public static final String FIELD_BUYER_RATE = "buyer_rate";
+	
+	private OrderShipping orderShipping;
+	private List<OrderItem> orderItem;
 	
 	@Id
 	private String orderId; //订单id
@@ -148,6 +152,18 @@ public class Order extends BaseEntity {
 	}
 	public Integer getBuyerRate() {
 		return this.buyerRate;
+	}
+	public OrderShipping getOrderShipping() {
+		return orderShipping;
+	}
+	public void setOrderShipping(OrderShipping orderShipping) {
+		this.orderShipping = orderShipping;
+	}
+	public List<OrderItem> getOrderItem() {
+		return orderItem;
+	}
+	public void setOrderItem(List<OrderItem> orderItem) {
+		this.orderItem = orderItem;
 	}
 	
 }
