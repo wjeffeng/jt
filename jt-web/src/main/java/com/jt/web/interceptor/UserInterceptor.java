@@ -15,7 +15,7 @@ import com.jt.web.entity.User;
 import com.jt.web.service.HttpClientService;
 import com.jt.web.threadLocal.UserThreadLocal;
 
-public class CartInterceptor implements HandlerInterceptor {
+public class UserInterceptor implements HandlerInterceptor {
 	@Autowired
 	private HttpClientService httpClientService;
 

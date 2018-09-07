@@ -28,8 +28,8 @@ public class CartController{
 	
 	@RequestMapping("/show")
 	public String show(Model model){
-		List<Cart> cartList = cartService.show(UserThreadLocal.getUserId());
-		model.addAttribute("cartList",cartList);
+		List<Cart> carts = cartService.show(UserThreadLocal.getUserId());
+		model.addAttribute("carts",carts);
 		return "cart";
 	}
 	

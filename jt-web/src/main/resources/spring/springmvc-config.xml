@@ -57,8 +57,9 @@
 			</bean>
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/cart/*.html"/>
-			<bean class="com.jt.web.interceptor.CartInterceptor">
+			<mvc:mapping path="/cart/*"/>
+			<mvc:mapping path="/order/*"/>
+			<bean class="com.jt.web.interceptor.UserInterceptor">
 			</bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
