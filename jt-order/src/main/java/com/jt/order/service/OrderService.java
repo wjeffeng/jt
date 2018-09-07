@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.jt.order.dao.OrderDao;
 import com.jt.order.entity.Order;
+import com.jt.order.entity.OrderItem;
+import com.jt.order.entity.OrderShipping;
 
 @Service
 public class OrderService {
@@ -21,5 +23,13 @@ public class OrderService {
 		order.setOrderId(orderId);
 		orderDao.create(order);
 		return orderId;
+	}
+
+	public OrderShipping getOrderShipping(String orderId) {
+		return orderDao.getOrderShippingByOrderId(orderId);
+	}
+
+	public OrderItem getOrderItem(String orderId) {
+		return orderDao.getOrderItemByOrderId(orderId);
 	}
 }

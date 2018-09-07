@@ -30,7 +30,7 @@ public class Order extends BaseEntity {
 	public static final String FIELD_BUYER_RATE = "buyer_rate";
 	
 	private OrderShipping orderShipping;
-	private List<OrderItem> orderItem;
+	private List<OrderItem> orderItems;
 	
 	@Id
 	private String orderId; //订单id
@@ -159,11 +159,11 @@ public class Order extends BaseEntity {
 	public void setOrderShipping(OrderShipping orderShipping) {
 		this.orderShipping = orderShipping;
 	}
-	public List<OrderItem> getOrderItem() {
-		return orderItem;
+	public List<OrderItem> getOrderItems() {
+		return orderItems;
 	}
-	public void setOrderItem(List<OrderItem> orderItem) {
-		this.orderItem = orderItem;
+	public void setOrderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
 	}
 	
 }

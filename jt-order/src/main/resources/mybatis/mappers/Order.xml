@@ -7,12 +7,12 @@
 		<id property="orderId" column="order_id"/>
 		
 		<!-- 订单和物流一对一，必须放在前面 -->
-		<association property="orderShipping" select="" javaType="OrderShipping" column="order_id">
+		<association property="orderShipping" select="getOrderShippingByOrderId" javaType="OrderShipping" column="order_id">
 			<id property="orderId" column="order_id"></id>
 		</association>
 		
 		<!-- 订单和商品一对多 -->
-		<collection property="orderItems" select="" javaType="arrayList" ofType="OrderItem"
+		<collection property="orderItems" select="getOrderItemByOrderId" javaType="arrayList" ofType="OrderItem"
 		column="order_id">
 			<id property="itemId" column="item_id"/>
 			<id property="orderId" column="order_id"/>

@@ -17,6 +17,7 @@ import com.jt.order.entity.Order;
 import com.jt.order.service.OrderService;
 
 @Controller
+@RequestMapping("/order")
 public class OrderController {
 	
 	@Autowired
@@ -25,9 +26,21 @@ public class OrderController {
 	public static final ObjectMapper MAPPER = new ObjectMapper(); 
 	
 	@ResponseBody
-	@RequestMapping("/query/{orderId}")
+	@RequestMapping("/getOrder/{orderId}")
 	public SysResult getOrder(@PathVariable String orderId){
 		return SysResult.ok(orderService.getOrder(orderId));
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getOrderShipping/{orderId}")
+	public SysResult getOrderShipping(@PathVariable String orderId){
+		return SysResult.ok(orderService.getOrderShipping(orderId));
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getOrderItem/{orderId}")
+	public SysResult getOrderItem(@PathVariable String orderId){
+		return SysResult.ok(orderService.getOrderItem(orderId));
 	}
 	
 	//创建订单
