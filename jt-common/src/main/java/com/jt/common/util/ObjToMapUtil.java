@@ -7,14 +7,14 @@ import java.util.Map;
 
 public class ObjToMapUtil {
 	
-	public static Map<String,Object> transfer(Object obj){
-		Map<String,Object> map = new HashMap<>();
+	public static Map<String,String> transfer(Object obj){
+		Map<String,String> map = new HashMap<>();
 		Field[] fields = obj.getClass().getDeclaredFields();
 		for (Field field : fields) {
 			field.setAccessible(true);
 			try {
 				Object o = field.get(obj);
-				map.put(field.getName(),o);
+				map.put(field.getName(),o.toString());
 			} catch (IllegalArgumentException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {

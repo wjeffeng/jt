@@ -44,7 +44,17 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping("/doSignUp")
 	public SysResult signUp(User user) {
+		
 		//TODO 校验
+		if(userService.check(user.getUsername(),1)){
+			return SysResult.build(201, "用户名已注册");
+		}
+		if(userService.check(user.getPhone(), 2)){
+			return SysResult.build(201, "手机号码已注册");
+		}
+		if(userService.check(user.getEmail(), 3)){
+			return SysResult.build(201, "邮箱已注册");
+		}
 		user.setCreated(new Date());
 		user.setUpdated(user.getCreated());
 		user.setEmail("temp_"+user.getPhone()+"@qq.com");

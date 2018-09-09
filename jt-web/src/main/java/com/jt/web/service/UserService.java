@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jt.common.vo.SysResult;
 import com.jt.web.entity.User;
 
 @Service
@@ -18,22 +19,21 @@ public class UserService {
 
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 	
-	public String signUp(User user) throws Exception{
+	public SysResult signUp(User user) throws Exception{
 		Map<String,String> params = new HashMap<>();
 		params.put("username", user.getUsername());
 		params.put("password", user.getPassword());
 		params.put("phone", user.getPhone());
 		params.put("email", user.getEmail());
 		String url = "http://sso.jt.com/user/doSignUp";
-		String username = null;
 		try {
 			String jsonData = httpClientService.doPost(url, params);
 			JsonNode jsonNode = MAPPER.readTree(jsonData);
-			username = jsonNode.get("data").asText();
+			return SysResult.build(jsonNode.get("status").asInt(), jsonNode.get("msg").asText());
 		} catch (Exception e) {
-			throw e;
+			e.printStackTrace();
+			return SysResult.build(201,"");
 		}
-		return username;
 	}
 
 	public String doLogin(User user) throws Exception {

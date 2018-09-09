@@ -28,7 +28,7 @@ public class UserController {
 	@RequestMapping("/doSignUp")
 	public SysResult signUp(User user) {
 		try {
-			return SysResult.ok(userService.signUp(user));
+			return userService.signUp(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return SysResult.build(201, "参数异常");

@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.jt.common.vo.SysResult;
 import com.jt.web.entity.Cart;
+import com.jt.web.entity.Order;
 import com.jt.web.service.OrderService;
 import com.jt.web.threadLocal.UserThreadLocal;
 
@@ -23,5 +25,11 @@ public class OrderController {
 		List<Cart> carts = orderService.getCartList(UserThreadLocal.getUserId());
 		model.addAttribute("carts", carts);
 		return "order-cart";
+	}
+	
+	@RequestMapping("/submit")
+	public SysResult submit(Order order){
+		order.setUserId(UserThreadLocal.getUserId());
+		return SysResult.ok(orderService.createOrder(order));
 	}
 }
