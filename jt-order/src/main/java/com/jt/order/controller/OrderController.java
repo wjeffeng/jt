@@ -44,6 +44,7 @@ public class OrderController {
 	}
 	
 	//创建订单
+	@ResponseBody
 	@RequestMapping("/create")
 	public String create(@RequestBody String orderData) throws JsonParseException, JsonMappingException, IOException{
 		Long userId = 502l;

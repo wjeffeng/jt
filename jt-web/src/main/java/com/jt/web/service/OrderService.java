@@ -1,15 +1,12 @@
 package com.jt.web.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jt.common.util.ObjToMapUtil;
-import com.jt.common.vo.SysResult;
 import com.jt.web.entity.Cart;
 import com.jt.web.entity.Order;
 
@@ -47,5 +44,13 @@ public class OrderService {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public Order getOrderById(Long orderId) throws Exception {
+		String url ="http://order.jt.com/order/getOrder/"+orderId;
+		String JsonData = httpClientService.doPostJson(url, orderId.toString());
+		JsonNode jsonNode = MAPPER.readTree(JsonData);
+		Order order = MAPPER.readValue(jsonNode.get("data").traverse(), Order.class);
+		return order;
 	}
 }
