@@ -30,10 +30,11 @@ public class Main {
   }
 
   /** Create the custom look and feel */
+  @SuppressWarnings("unused")
   public static void initCustomLAF() {
     //->…Ë÷√LookAndFeel
     Font font = new Font("Dialog", Font.PLAIN, 12);
-    Color forecolor = new Color(5, 50, 156);
+	Color forecolor = new Color(5, 50, 156);
 //      Color backcolor = new Color(204,204,255);
     Color backcolor = new Color(245, 245, 245);
     Border borderButton = BorderFactory.createEmptyBorder();
