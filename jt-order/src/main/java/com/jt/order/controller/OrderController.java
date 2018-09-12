@@ -31,18 +31,6 @@ public class OrderController {
 		return SysResult.ok(orderService.getOrder(orderId));
 	}
 	
-	@ResponseBody
-	@RequestMapping("/getOrderShipping/{orderId}")
-	public SysResult getOrderShipping(@PathVariable String orderId){
-		return SysResult.ok(orderService.getOrderShipping(orderId));
-	}
-	
-	@ResponseBody
-	@RequestMapping("/getOrderItem/{orderId}")
-	public SysResult getOrderItem(@PathVariable String orderId){
-		return SysResult.ok(orderService.getOrderItem(orderId));
-	}
-	
 	//创建订单
 	@ResponseBody
 	@RequestMapping("/create")

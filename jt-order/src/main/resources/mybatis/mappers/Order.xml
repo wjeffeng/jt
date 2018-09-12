@@ -60,10 +60,16 @@
 			(#{item.itemId}, #{orderId}, #{item.num}, #{item.title}, #{item.price}, #{item.totalFee}, #{item.picPath})
 		</foreach>;
 	</select>
+	
+	<!-- 定时任务，处理未支付订单 -->
+	<update id="handleUnPaidOrder">
+		UPDATE tb_order SET status=6,end_time=NOW(),close_time=NOW()
+		WHERE payment_type=1 AND status=1 AND created &lt; #{date}
+	</update>
 
 	<!-- 按参数查询（分页） -->
 	<select id="check" parameterType="java.util.Map" resultType="Integer">
-		select count(*) from
+		SELECT COUNT(*) FROM
 		<include refid="table" />
 		<where>
 			${type}=#{param}

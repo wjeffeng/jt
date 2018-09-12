@@ -30,7 +30,7 @@ public class OrderController {
 	
 	@ResponseBody
 	@RequestMapping("/submit")
-	public SysResult submit(Order order){
+	public SysResult submit(Order order){ 
 		order.setUserId(UserThreadLocal.getUserId());
 		return SysResult.ok(orderService.createOrder(order));
 	}
