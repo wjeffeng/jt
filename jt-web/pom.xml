@@ -13,8 +13,33 @@
 	<name>jt-web</name>
 	<url>http://maven.apache.org</url>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.jt</groupId>
+			<artifactId>jt-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jt</groupId>
+			<artifactId>jt-facade-order</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 
 	<build>
+		<finalName>jt-web</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+
+			<resource>
+				<directory>env/${env}</directory>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -37,11 +62,5 @@
 		</plugins>
 	</build>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.jt</groupId>
-			<artifactId>jt-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+
 </project>

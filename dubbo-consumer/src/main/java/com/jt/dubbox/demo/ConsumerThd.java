@@ -11,12 +11,11 @@ public class ConsumerThd {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 				new String[] { "applicationConsumer.xml" });
 		context.start();
-
+		
 		IProcessData demoService = (IProcessData) context.getBean("demoService");
 		for (;;) {
 			String s = demoService.hello("world");
 			System.out.println(s);
 		}
-
 	}
 }

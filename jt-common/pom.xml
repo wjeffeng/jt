@@ -1,27 +1,82 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <artifactId>jt-common</artifactId>
+	<artifactId>jt-common</artifactId>
 
-  <name>jt-common</name>
-  <url>http://maven.apache.org</url>
+	<name>jt-common</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <parent>
-  	<groupId>com.jt</groupId>
-  	<artifactId>jt-parent</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
-  </parent>
+	<profiles>
+		<!-- 开发环境 -->
+		<profile>
+			<id>dev</id>
+			<properties>
+				<!-- 部署环境(对应配置文件版本) -->
+				<env>dev</env>
+				<maven.test.skip>false</maven.test.skip>
+			</properties>
+			<!-- 设置默认环境 -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<!-- 测试环境 -->
+		<profile>
+			<id>test</id>
+			<properties>
+				<env>test</env>
+			</properties>
+		</profile>
+
+		<!-- 生产环境 -->
+		<profile>
+			<id>produce</id>
+			<properties>
+				<env>produce</env>
+			</properties>
+		</profile>
+
+	</profiles>
+
+	<build>
+		<finalName>jt-common</finalName>
+		<resources>
+			<!-- 指定resources目录下所有文件为资源文件 -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+
+			<!-- 根据部署环境，拷贝环境配置文件到classes目录 -->
+			<resource>
+				<directory>env/${env}</directory>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<parent>
+		<groupId>com.jt</groupId>
+		<artifactId>jt-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 </project>

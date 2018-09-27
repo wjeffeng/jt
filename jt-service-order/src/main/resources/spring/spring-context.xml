@@ -14,21 +14,24 @@
 		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
 		<!-- 忽略没有找到的资源文件 -->
 		<property name="ignoreResourceNotFound" value="true" />
-		<!-- 配置资源文件 -->
+		<!-- 读入配置属性文件 -->
 		<property name="locations">
 			<list>
 				<value>classpath:jdbc.properties</value>
 				<value>classpath:env.properties</value>
-				<value>classpath:httpclient.properties</value>
+				<value>classpath:redis.properties</value>
 				<value>classpath:public_system.properties</value>
 			</list>
 		</property>
 	</bean>
 
 	<!-- 扫描包 -->
-	<context:component-scan base-package="com.jt" />
+	<context:component-scan base-package="com.jt">
+		<context:exclude-filter type="regex" expression="com.jt.order.controller.*"/>
+	</context:component-scan>
 	
-	<!-- dubbo consumer -->
-	<import resource="classpath:spring/spring-dubbo-consumer"/>
-
+	<import resource="classpath:spring/spring-mybatis.xml"/>
+	<import resource="classpath:spring/spring-redis.xml"/>
+	<import resource="classpath:spring/spring-dubbo-consumer.xml"/>
+	<import resource="classpath:spring/spring-dubbo-provider.xml"/>
 </beans>
