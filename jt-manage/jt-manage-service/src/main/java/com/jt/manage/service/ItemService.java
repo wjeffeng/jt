@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.jt.common.service.base.BaseService;
+import com.jt.common.service.base.BaseServiceImpl;
 import com.jt.common.vo.EasyUIResult;
 import com.jt.manage.dao.ItemDao;
 import com.jt.manage.dao.ItemDescDao;
@@ -16,7 +16,7 @@ import com.jt.manage.entity.Item;
 import com.jt.manage.entity.ItemDesc;
 
 @Service
-public class ItemService extends BaseService<Item> {
+public class ItemService extends BaseServiceImpl<Item> {
 	
 	@Autowired
 	private ItemDao itemDao;

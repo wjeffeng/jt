@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.service.RedisService;
-import com.jt.common.service.base.BaseService;
+import com.jt.common.service.base.BaseServiceImpl;
 import com.jt.sso.dao.UserDao;
 import com.jt.sso.entity.User;
 
@@ -21,7 +21,7 @@ import com.jt.sso.entity.User;
  * @date 2018-08-23 23:06:48
  */
 @Service("userService")
-public class UserService extends BaseService<User>{
+public class UserService extends BaseServiceImpl<User>{
 
 	@Autowired
 	private UserDao userDao;

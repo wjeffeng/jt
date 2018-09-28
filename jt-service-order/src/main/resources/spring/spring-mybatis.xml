@@ -34,7 +34,7 @@
 		<!-- mybatis-config.xml -->
 		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
 		<!-- 别名包 -->
-		<property name="typeAliasesPackage" value="com.jt.order.entity"/>
+		<property name="typeAliasesPackage" value="com.jt.facade.order.entity"/>
 		<!-- mapper.xml -->
 		<property name="mapperLocations" value="classpath:mybatis/mappers/*.xml"/>
 	</bean>
@@ -42,7 +42,7 @@
 	<!-- 定义Mapper接口扫描器 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 扫描mapper包 -->
-		<property name="basePackage" value="com.jt.order.dao"/>
+		<property name="basePackage" value="com.jt.service.order.dao"/>
 	</bean>
 	
 	<!-- 定义事务管理器 -->
@@ -71,7 +71,7 @@
 
 	<aop:config>
 		<!-- 定义切面，所有的service的所有方法 -->
-		<aop:pointcut id="txPointcut" expression="execution(* com.jt.order.service.*.*(..))" />
+		<aop:pointcut id="txPointcut" expression="execution(* com.jt.facade.order.service.*.*(..))" />
 		<!-- 应用事务策略到Service切面 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
 	</aop:config>

@@ -11,10 +11,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.vo.SysResult;
 import com.jt.web.entity.User;
 
-@Service
+/*@Service("userService")*/
 public class UserService {
 	
-	@Autowired
+	//@Autowired
 	private HttpClientService httpClientService;
 
 	private static final ObjectMapper MAPPER = new ObjectMapper();

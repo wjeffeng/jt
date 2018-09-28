@@ -10,7 +10,7 @@ import com.jt.web.entity.Item;
 import com.jt.web.entity.ItemDesc;
 import com.jt.web.service.ItemService;
 
-@Controller
+/*@Controller*/
 @RequestMapping("/item")
 public class ItemController {
 

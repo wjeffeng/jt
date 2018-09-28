@@ -12,10 +12,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.vo.SysResult;
 import com.jt.web.entity.Cart;
 
-@Service
+/*@Service("cartService")*/
 public class CartService {
 
-	@Autowired
+	//@Autowired
 	private HttpClientService httpClientService;
 	
 	private static final ObjectMapper MAPPER = new ObjectMapper();

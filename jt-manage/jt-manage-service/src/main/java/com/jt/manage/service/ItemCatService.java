@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.service.RedisService;
-import com.jt.common.service.base.BaseService;
+import com.jt.common.service.base.BaseServiceImpl;
 import com.jt.manage.dao.ItemCatDao;
 import com.jt.manage.entity.ItemCat;
 import com.jt.manage.entity.ItemCatData;
 import com.jt.manage.entity.ItemCatResult;
 
 @Service
-public class ItemCatService extends BaseService<ItemCat> {
+public class ItemCatService extends BaseServiceImpl<ItemCat> {
 
 	@Autowired
 	private ItemCatDao itemCatDao;

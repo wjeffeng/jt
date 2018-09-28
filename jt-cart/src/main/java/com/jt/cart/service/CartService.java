@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.jt.cart.dao.CartDao;
 import com.jt.cart.entity.Cart;
-import com.jt.common.service.base.BaseService;
+import com.jt.common.service.base.BaseServiceImpl;
 
 @Service
-public class CartService extends BaseService<Cart>{
+public class CartService extends BaseServiceImpl<Cart>{
 
 	@Autowired
 	private CartDao cartDao;

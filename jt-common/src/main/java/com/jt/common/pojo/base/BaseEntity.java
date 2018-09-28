@@ -2,7 +2,7 @@ package com.jt.common.pojo.base;
 
 import java.util.Date;
 
-public class BaseEntity {
+public class BaseEntity{
 
 	private Date updated;
 	private Date created;

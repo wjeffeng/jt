@@ -2,16 +2,7 @@ package com.jt.common.service.base;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.jt.common.dao.base.BaseDao;
-
-public abstract class BaseService<T> {
-	@Autowired // 注入Mapepr
-	private BaseDao<T> baseDao;
-
-	// 传统写法，Spring4以下版本
-	// public abstract SysMapper<T> getSysMapper();
+public interface BaseService<T> {
 
 	/**
 	 * 根据主键查询数据
@@ -19,9 +10,7 @@ public abstract class BaseService<T> {
 	 * @param id
 	 * @return
 	 */
-	public T queryById(Object id) {
-		return this.baseDao.selectByPrimaryKey(id);
-	}
+	public T queryById(Object id);
 
 	/**
 	 * 根据条件查询，多条件之间是 and 关系
@@ -29,9 +18,7 @@ public abstract class BaseService<T> {
 	 * @param t
 	 * @return
 	 */
-	public List<T> queryListByWhere(T t) {
-		return this.baseDao.select(t);
-	}
+	public List<T> queryListByWhere(T t);
 
 	/**
 	 * 根据条件查询单条数据
@@ -39,40 +26,28 @@ public abstract class BaseService<T> {
 	 * @param t
 	 * @return
 	 */
-	public T queryByWhere(T t) {
-		List<T> list = queryListByWhere(t);
-		if (list != null && !list.isEmpty()) {
-			return list.get(0);
-		}
-		return null;
-	}
+	public T queryByWhere(T t);
 
 	/**
 	 * 查询所有数据
 	 * 
 	 * @return
 	 */
-	public List<T> queryAll() {
-		return this.baseDao.select(null);
-	}
+	public List<T> queryAll();
 
 	/**
 	 * 新增数据，使用全部字段
 	 * 
 	 * @param t
 	 */
-	public void save(T t) {
-		this.baseDao.insert(t);
-	}
+	public void save(T t);
 
 	/**
 	 * 新增数据，使用不为null的字段
 	 * 
 	 * @param t
 	 */
-	public void saveSelective(T t) {
-		this.baseDao.insertSelective(t);
-	}
+	public void saveSelective(T t);
 
 	/**
 	 * 根据id删除
@@ -80,9 +55,7 @@ public abstract class BaseService<T> {
 	 * @param id
 	 * @return
 	 */
-	public Integer deleteById(Object id) {
-		return this.baseDao.deleteByPrimaryKey(id);
-	}
+	public Integer deleteById(Object id);
 
 	/**
 	 * 根据ids删除
@@ -90,34 +63,26 @@ public abstract class BaseService<T> {
 	 * @param ids
 	 * @return
 	 */
-	public Integer deleteByIds(Object[] ids) {
-		return this.baseDao.deleteByIDS(ids);
-	}
+	public Integer deleteByIds(Object[] ids);
 
 	/**
 	 * 根据条件删除
 	 * 
 	 * @param t
 	 */
-	public Integer deleteByWhere(T t) {
-		return this.baseDao.delete(t);
-	}
+	public Integer deleteByWhere(T t);
 
 	/**
 	 * 根据主键id更新数据
 	 * 
 	 * @param t
 	 */
-	public Integer update(T t) {
-		return this.baseDao.updateByPrimaryKey(t);
-	}
+	public Integer update(T t);
 
 	/**
 	 * 根据主键id更新数据
 	 * 
 	 * @param t
 	 */
-	public Integer updateSelective(T t) {
-		return this.baseDao.updateByPrimaryKeySelective(t);
-	}
+	public Integer updateSelective(T t);
 }

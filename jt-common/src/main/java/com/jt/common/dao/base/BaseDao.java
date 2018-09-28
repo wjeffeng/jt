@@ -1,4 +1,4 @@
-package com.jt.common.dao.base;
+ package com.jt.common.dao.base;
 
 import java.util.List;
 

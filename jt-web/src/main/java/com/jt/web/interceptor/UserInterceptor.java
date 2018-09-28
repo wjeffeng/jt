@@ -8,16 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.util.CookieUtils;
+import com.jt.common.vo.SysResult;
+import com.jt.facade.sso.service.UserService;
 import com.jt.web.entity.User;
-import com.jt.web.service.HttpClientService;
 import com.jt.web.threadLocal.UserThreadLocal;
 
 public class UserInterceptor implements HandlerInterceptor {
 	@Autowired
-	private HttpClientService httpClientService;
+	private UserService userService;
 
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -26,11 +26,9 @@ public class UserInterceptor implements HandlerInterceptor {
 			throws Exception {
 		String ticket = CookieUtils.getCookieValue(request, "JT_TICKET");
 		if (StringUtils.isNotEmpty(ticket)) {
-			String url = "http://sso.jt.com/user/checkTicket/" + ticket;
 			try {
-				String jsonData = httpClientService.doGet(url);
-				JsonNode jsonNode = MAPPER.readTree(jsonData);
-				User curUser = MAPPER.readValue(jsonNode.get("data").asText(), User.class);
+				SysResult result =userService.checkTicket(ticket);
+				User curUser = MAPPER.readValue(result.getData().toString(), User.class);
 				UserThreadLocal.setUser(curUser);
 				return true;
 			} catch (Exception e) {

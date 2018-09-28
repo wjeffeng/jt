@@ -7,8 +7,8 @@ var TT = JT = {
 		}
 		//当dataType类型为jsonp时，jQuery就会自动在请求链接上增加一个callback的参数
 		$.ajax({
-			url : "http://sso.jt.com/user/checkTicket/" + _ticket,
-			dataType : "jsonp",
+			url : "http://front.jt.com/user/checkTicket/" + _ticket,
+			dataType : "json",
 			type : "GET",
 			success : function(data){
 				if(data.status == 200){

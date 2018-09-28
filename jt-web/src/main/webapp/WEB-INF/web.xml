@@ -7,8 +7,12 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/spring*.xml</param-value>
+		<param-value>classpath:spring/spring-context.xml</param-value>
 	</context-param>
+	
+	<listener>
+		<listener-class>com.alibaba.dubbo.remoting.http.servlet.BootstrapListener</listener-class>
+	</listener>
 	<!--Spring的ApplicationContext 载入 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -57,7 +61,7 @@
 		<servlet-name>springmvc-web</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<welcome-file-list>
 		<welcome-file>index.do</welcome-file>
 	</welcome-file-list>

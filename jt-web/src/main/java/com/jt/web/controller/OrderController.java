@@ -1,7 +1,5 @@
 package com.jt.web.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jt.common.vo.SysResult;
-import com.jt.web.entity.Cart;
-import com.jt.web.entity.Order;
-import com.jt.web.service.OrderService;
+import com.jt.facade.order.entity.Order;
+import com.jt.facade.order.service.OrderService;
 import com.jt.web.threadLocal.UserThreadLocal;
 
 @Controller
@@ -23,8 +20,8 @@ public class OrderController {
 	
 	@RequestMapping("/cart")
 	public String orderCart(Model model){
-		List<Cart> carts = orderService.getCartList(UserThreadLocal.getUserId());
-		model.addAttribute("carts", carts);
+		/*List<Cart> carts = orderService.getCartList(UserThreadLocal.getUserId());
+		model.addAttribute("carts", carts);*/
 		return "order-cart";
 	}
 	
@@ -32,13 +29,13 @@ public class OrderController {
 	@RequestMapping("/submit")
 	public SysResult submit(Order order){ 
 		order.setUserId(UserThreadLocal.getUserId());
-		return SysResult.ok(orderService.createOrder(order));
+		return SysResult.ok(orderService.create(order));
 	}
 	
 	@RequestMapping("/getOrderById")
 	public SysResult getOrderById(Long orderId){
 		try {
-			return SysResult.ok(orderService.getOrderById(orderId));
+			return SysResult.ok(orderService.getOrder(orderId.toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,7 +46,7 @@ public class OrderController {
 	public String success(Model model,Long id){
 		Order order=null;
 		try {
-			order = orderService.getOrderById(id);
+			order = orderService.getOrder(id.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

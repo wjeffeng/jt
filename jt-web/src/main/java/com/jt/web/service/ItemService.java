@@ -9,12 +9,12 @@ import com.jt.common.service.RedisService;
 import com.jt.web.entity.Item;
 import com.jt.web.entity.ItemDesc;
 
-@Service
+/*@Service("itemService")*/
 public class ItemService {
 
-	@Autowired
+	//@Autowired
 	private HttpClientService httpClientService;
-	@Autowired
+	//@Autowired
 	private RedisService redisService;
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 

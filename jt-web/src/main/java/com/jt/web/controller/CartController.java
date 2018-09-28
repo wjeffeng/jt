@@ -17,7 +17,7 @@ import com.jt.web.service.CartService;
 import com.jt.web.service.ItemService;
 import com.jt.web.threadLocal.UserThreadLocal;
 
-@Controller
+/*@Controller*/
 @RequestMapping("/cart")
 public class CartController{
 

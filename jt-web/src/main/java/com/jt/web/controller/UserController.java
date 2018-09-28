@@ -5,13 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jt.common.util.CookieUtils;
 import com.jt.common.vo.SysResult;
-import com.jt.web.entity.User;
-import com.jt.web.service.UserService;
+import com.jt.facade.sso.entity.User;
+import com.jt.facade.sso.service.UserService;
 
 @Controller
 @RequestMapping("/user")
@@ -59,5 +60,15 @@ public class UserController {
 	public String doLogout(HttpServletRequest request,HttpServletResponse response){
 		CookieUtils.deleteCookie(request, response, "JT_TICKET");
 		return "index";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/checkTicket/{ticket}")
+	public SysResult checkTicket(@PathVariable String ticket) {
+		try {
+			return userService.checkTicket(ticket);
+		} catch (Exception e) {
+			return SysResult.build(201, "参数异常");
+		}
 	}
 }

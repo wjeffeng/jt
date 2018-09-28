@@ -14,34 +14,29 @@
 
 	<build>
 		<resources>
-		<resource>
-			<directory>src/main/resources</directory>
-			<filtering>true</filtering>
-		</resource>
-		
-		<resource>
-  			<directory>env/${env}</directory>
-  			<targetPath>${project.build.directory}/classes</targetPath>
-  			<filtering>true</filtering>
-  		</resource>
-	</resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+
+			<resource>
+				<directory>env/${env}</directory>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
-	<parent>
-		<groupId>com.jt</groupId>
-		<artifactId>jt-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
 	<dependencies>
-		<dependency>
-			<groupId>com.jt</groupId>
-			<artifactId>jt-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>com.jt</groupId>
 			<artifactId>jt-facade-order</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	<parent>
+		<groupId>com.jt</groupId>
+		<artifactId>jt-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 </project>
