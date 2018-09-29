@@ -1,6 +1,6 @@
 package com.jt.web.threadLocal;
 
-import com.jt.web.entity.User;
+import com.jt.facade.sso.entity.User;
 
 public class UserThreadLocal {
 	

@@ -11,8 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.common.util.CookieUtils;
 import com.jt.common.vo.SysResult;
+import com.jt.facade.sso.entity.User;
 import com.jt.facade.sso.service.UserService;
-import com.jt.web.entity.User;
 import com.jt.web.threadLocal.UserThreadLocal;
 
 public class UserInterceptor implements HandlerInterceptor {
