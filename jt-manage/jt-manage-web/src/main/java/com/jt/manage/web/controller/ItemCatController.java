@@ -12,8 +12,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jt.common.util.JSONUtils;
-import com.jt.manage.entity.ItemCat;
-import com.jt.manage.service.ItemCatService;
+import com.jt.facade.manage.entity.ItemCat;
+import com.jt.facade.manage.service.ItemCatService;
 
 @Controller
 @RequestMapping("/item/cat")

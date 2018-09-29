@@ -6,11 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.jt.web.entity.Item;
-import com.jt.web.entity.ItemDesc;
-import com.jt.web.service.ItemService;
+import com.jt.facade.manage.entity.Item;
+import com.jt.facade.manage.entity.ItemDesc;
+import com.jt.facade.manage.service.ItemService;
 
-/*@Controller*/
+
+@Controller
 @RequestMapping("/item")
 public class ItemController {
 
@@ -19,7 +20,7 @@ public class ItemController {
 
 	@RequestMapping("/{itemId}")
 	public String getItem(@PathVariable Long itemId, Model model) {
-		Item item = this.itemService.getItemById(itemId);
+		Item item = this.itemService.queryById(itemId);
 		model.addAttribute("item", item);
 		return "item";
 	}

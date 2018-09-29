@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jt.manage.entity.Item;
-import com.jt.manage.entity.ItemDesc;
-import com.jt.manage.service.ItemService;
+import com.jt.facade.manage.entity.Item;
+import com.jt.facade.manage.entity.ItemDesc;
+import com.jt.facade.manage.service.ItemService;
 
 @Controller
 @RequestMapping("/web/item")

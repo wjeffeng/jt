@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jt.common.vo.PicUploadResult;
-import com.jt.manage.service.PicUpLoadService;
+import com.jt.facade.manage.service.PicUpLoadService;
 
 @Controller
 @RequestMapping("/pic")

@@ -1,5 +1,7 @@
 package com.jt.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jt.common.vo.SysResult;
+import com.jt.facade.cart.entity.Cart;
+import com.jt.facade.cart.service.CartService;
 import com.jt.facade.order.entity.Order;
 import com.jt.facade.order.service.OrderService;
 import com.jt.web.threadLocal.UserThreadLocal;
@@ -17,11 +21,13 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private CartService cartService;
 	
 	@RequestMapping("/cart")
 	public String orderCart(Model model){
-		/*List<Cart> carts = orderService.getCartList(UserThreadLocal.getUserId());
-		model.addAttribute("carts", carts);*/
+		List<Cart> carts = cartService.myCart(UserThreadLocal.getUserId());
+		model.addAttribute("carts", carts);
 		return "order-cart";
 	}
 	

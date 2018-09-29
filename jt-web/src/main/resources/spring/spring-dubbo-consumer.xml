@@ -16,6 +16,13 @@
 	<dubbo:consumer timeout="5000"/>
 	
 	<!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
+	<!-- order -->
 	<dubbo:reference id="orderService" interface="com.jt.facade.order.service.OrderService"/>
+	<!-- sso -->
 	<dubbo:reference id="userService" interface="com.jt.facade.sso.service.UserService"/>
+	<!-- cart -->
+	<dubbo:reference id="cartService" interface="com.jt.facade.cart.service.CartService"/>
+	<!-- manage -->
+	<dubbo:reference id="itemService" interface="com.jt.facade.manage.service.ItemService"/>
+	<dubbo:reference id="itemCatService" interface="com.jt.facade.manage.service.ItemCatService"/>
 </beans>

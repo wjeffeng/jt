@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jt.manage.entity.ItemCatResult;
-import com.jt.manage.service.ItemCatService;
+import com.jt.facade.manage.entity.ItemCatResult;
+import com.jt.facade.manage.service.ItemCatService;
 
 @Controller
 @RequestMapping("/web/itemcat")

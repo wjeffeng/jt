@@ -36,7 +36,7 @@
   <dependencies>
   	<dependency>
   		<groupId>com.jt</groupId>
-  		<artifactId>jt-manage-service</artifactId>
+  		<artifactId>jt-facade-manage</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>

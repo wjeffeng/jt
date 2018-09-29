@@ -45,6 +45,16 @@
 			<artifactId>jt-facade-sso</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.jt</groupId>
+			<artifactId>jt-facade-cart</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jt</groupId>
+			<artifactId>jt-facade-manage</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
