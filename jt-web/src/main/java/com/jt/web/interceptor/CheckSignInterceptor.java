@@ -19,7 +19,7 @@ public class CheckSignInterceptor extends HandlerInterceptorAdapter{
 			if(cs==null){
 				return true;
 			}else{
-				System.out.println("----执行校验----");
+				System.out.println("----执行验签----");
 				return true;
 			}
 		}
