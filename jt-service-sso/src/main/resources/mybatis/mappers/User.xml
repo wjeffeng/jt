@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jt.sso.dao.UserDao">
+<mapper namespace="com.jt.service.sso.dao.UserDao">
 	<sql id="table"> tb_user </sql>
 
 	<!-- 按参数查询（分页） -->

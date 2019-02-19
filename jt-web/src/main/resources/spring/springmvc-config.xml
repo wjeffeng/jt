@@ -56,11 +56,11 @@
 			<bean class="com.jt.web.interceptor.CheckSignInterceptor">
 			</bean>
 		</mvc:interceptor>
-		<mvc:interceptor>
+		<!-- <mvc:interceptor>
 			<mvc:mapping path="/cart/*"/>
 			<mvc:mapping path="/order/*"/>
 			<bean class="com.jt.web.interceptor.UserInterceptor">
 			</bean>
-		</mvc:interceptor>
+		</mvc:interceptor> -->
 	</mvc:interceptors>
 </beans>

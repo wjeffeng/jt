@@ -30,5 +30,6 @@
 	
 	<!-- dubbo consumer -->
 	<import resource="classpath:spring/spring-dubbo-consumer.xml"/>
-
+	
+	<import resource="classpath:spring/spring-security.xml"/>
 </beans>

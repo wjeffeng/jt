@@ -9,27 +9,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jt.common.pojo.base.BaseEntity;
 
 @Table(name="tb_user")
-public class User extends BaseEntity implements Serializable {
+public class User implements Serializable {
 	
 	private static final long serialVersionUID = -9121463519515287526L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public static final String FIELD_ID = "id";
 	public static final String FIELD_USERNAME = "username";
 	
-	@JsonIgnore
+	
 	public static final String FIELD_PASSWORD = "password";
 	public static final String FIELD_PHONE = "phone";
 	public static final String FIELD_EMAIL = "email";
 	public static final String FIELD_CREATED = "created";
 	public static final String FIELD_UPDATED = "updated";
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; //
 	private String username; //
+	
+	@JsonIgnore
 	private String password; // MD5加密
 	private String phone; //
 	private String email; //

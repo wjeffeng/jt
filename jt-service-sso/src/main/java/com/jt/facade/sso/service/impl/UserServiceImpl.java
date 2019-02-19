@@ -15,6 +15,7 @@ import com.jt.common.service.base.BaseServiceImpl;
 import com.jt.common.vo.SysResult;
 import com.jt.facade.sso.entity.User;
 import com.jt.facade.sso.service.UserService;
+import com.jt.facade.sso.service.UserService2;
 import com.jt.service.sso.dao.UserDao;
 
 @Service("userService")
@@ -24,6 +25,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	private UserDao userDao;
 	@Autowired
 	private RedisService redisService;
+	@Autowired
+	private UserService2 userService2;
 	
 	public static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -106,5 +109,32 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 		} catch (Exception e) {
 			return SysResult.build(201, "参数异常");
 		}
+	}
+	
+	@Override
+	public void m1(User user,User user2){
+		user.setPhone("AAA");
+		userDao.updateByPrimaryKey(user);
+		/*try {
+			this.userService2.m2(user2);
+		} catch (Exception e) {
+			System.out.println("---m2 roll back---");
+		}*/
+		method2();
+		if(user.getUsername().contains("a")){
+			return;	
+		}
+		throw new RuntimeException();
+		
+	}
+	
+	private void method2(){
+		User u3 = userDao.selectByPrimaryKey(504l);
+		u3.setPhone("CCC");
+		userDao.updateByPrimaryKey(u3);
+		if(u3.getUsername().contains("c")){
+			return;	
+		}
+		throw new RuntimeException();
 	}
 }

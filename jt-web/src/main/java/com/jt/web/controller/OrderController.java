@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.jt.common.vo.SysResult;
 import com.jt.facade.cart.entity.Cart;
@@ -25,9 +26,9 @@ public class OrderController {
 	private CartService cartService;
 	
 	@RequestMapping("/cart")
-	public String orderCart(Model model){
+	public String orderCart(ModelAndView model){
 		List<Cart> carts = cartService.myCart(UserThreadLocal.getUserId());
-		model.addAttribute("carts", carts);
+		model.addObject("carts", carts);
 		return "order-cart";
 	}
 	

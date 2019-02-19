@@ -47,7 +47,7 @@ public class UserController {
 		String ticket = null;
 		try {
 			ticket = userService.doLogin(user);
-			request.getHeader("referer");
+ 			request.getHeader("referer");
 			CookieUtils.setCookie(request, response, "JT_TICKET", ticket,60*60*3);
 			return SysResult.ok(ticket);
 		} catch (Exception e) {

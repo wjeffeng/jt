@@ -20,4 +20,6 @@ public interface UserService extends BaseService<User>{
 	public String doLogin(User user);
 	
 	public SysResult checkTicket(String ticket);
+
+	void m1(User user, User user2);
 }
