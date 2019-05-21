@@ -15,7 +15,7 @@ public class Main {
 		try {
 			context = new ClassPathXmlApplicationContext(PATH);
 			context.start();
-			log.info("[ManageService启动...]");
+			log.info("[SsoService启动...]");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);

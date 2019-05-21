@@ -1,4 +1,4 @@
-package com.jt.service.order.main;
+package com.jt.service.manage.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

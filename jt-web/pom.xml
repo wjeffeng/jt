@@ -89,7 +89,7 @@
 				<version>2.2</version>
 				<configuration>
 					<port>8082</port>
-					<path>/</path>
+					<path>/jt</path>
 					<contextReloadable>true</contextReloadable>
 				</configuration>
 			</plugin>

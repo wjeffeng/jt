@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Table(name="tb_user")
 public class User implements Serializable {
@@ -28,6 +30,8 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; //
+	//测试@NotNull注解
+	@NotNull(message="username can't be blank")
 	private String username; //
 	
 	@JsonIgnore

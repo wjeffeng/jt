@@ -1,4 +1,4 @@
-package com.jt.service.order.main;
+package com.jt.service.cart.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -15,7 +15,7 @@ public class Main {
 		try {
 			context = new ClassPathXmlApplicationContext(PATH);
 			context.start();
-			log.info("[ManageService启动...]");
+			log.info("[CartService启动...]");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
