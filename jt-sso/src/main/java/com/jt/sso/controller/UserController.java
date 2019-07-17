@@ -31,8 +31,7 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping(value="/check/{param}/{type}",method=RequestMethod.GET)
-	public SysResult check(@PathVariable("param") String param,
-			@PathVariable("type") Integer type) {
+	public SysResult check(@PathVariable("param") String param,@PathVariable("type") Integer type) {
 		try {
 			boolean result = this.userService.check(param,type);
 			return SysResult.ok(result);
@@ -44,15 +43,14 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping("/doSignUp")
 	public SysResult signUp(User user) {
-		
 		//TODO 校验
-		if(userService.check(user.getUsername(),1)){
+		if(!userService.check(user.getUsername(),1)){
 			return SysResult.build(201, "用户名已注册");
 		}
-		if(userService.check(user.getPhone(), 2)){
+		if(!userService.check(user.getPhone(), 2)){
 			return SysResult.build(201, "手机号码已注册");
 		}
-		if(userService.check(user.getEmail(), 3)){
+		if(!userService.check(user.getEmail(), 3)){
 			return SysResult.build(201, "邮箱已注册");
 		}
 		user.setCreated(new Date());

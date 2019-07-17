@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jt.common.util.CookieUtils;
@@ -23,6 +24,17 @@ public class UserController {
 	@RequestMapping("/register")
 	public String register() {
 		return "register";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/check/{param}/{type}",method=RequestMethod.GET)
+	public SysResult check(@PathVariable("param") String param, @PathVariable("type") Integer type) {
+		try {
+			boolean result = this.userService.check(param,type);
+			return SysResult.ok(result);
+		} catch (Exception e) {
+			return SysResult.build(201, "监测失败");
+		}
 	}
 
 	@ResponseBody

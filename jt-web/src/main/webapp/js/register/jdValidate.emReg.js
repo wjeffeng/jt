@@ -68,7 +68,8 @@ function reg() {
 	var agreeProtocol = checkReadMe();
 	var regNameok = validateRegName();
 	var passed = false;
-	var mobile = $("#phone").val();
+	var mobile = $("#phone").val();v
+	var mobileFlags = false;
 	if(closeMobileReg == 1)
 	{
 		if (mobile == "") {

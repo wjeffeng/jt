@@ -39,10 +39,8 @@ public class UserService extends BaseServiceImpl<User>{
 		}
 		params.put("param",param);
 		Integer i = userDao.check(params);
-		if(0==i){
-			return false;
-		}
-		return true;
+		
+		return 0==i;
 	}
 
 	public String queryLogin(String name,String pwd) {
