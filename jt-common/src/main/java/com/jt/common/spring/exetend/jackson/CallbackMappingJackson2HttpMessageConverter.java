@@ -1,6 +1,7 @@
 package com.jt.common.spring.exetend.jackson;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,7 +22,7 @@ public class CallbackMappingJackson2HttpMessageConverter extends MappingJackson2
     private String callbackName;
 
     @Override
-    protected void writeInternal(Object object, HttpOutputMessage outputMessage) throws IOException,
+    public void writeInternal(Object object, HttpOutputMessage outputMessage) throws IOException,
             HttpMessageNotWritableException {
         // 从threadLocal中获取当前的Request对象
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder

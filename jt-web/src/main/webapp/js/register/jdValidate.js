@@ -1484,6 +1484,7 @@ function mobileOkStyle() {
     $("#mobileCodeDiv").show();
     $("#rebind").remove();
     $("#mobileCodeDiv").show();
+    $("#state").val("unbind");
     mobileFlags = true;
 }
 

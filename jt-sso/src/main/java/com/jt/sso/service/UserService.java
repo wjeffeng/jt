@@ -40,7 +40,7 @@ public class UserService extends BaseServiceImpl<User>{
 		params.put("param",param);
 		Integer i = userDao.check(params);
 		
-		return 0==i;
+		return 1==i;
 	}
 
 	public String queryLogin(String name,String pwd) {

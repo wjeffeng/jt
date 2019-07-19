@@ -15,7 +15,6 @@ import com.jt.common.service.base.BaseServiceImpl;
 import com.jt.common.vo.SysResult;
 import com.jt.facade.sso.entity.User;
 import com.jt.facade.sso.service.UserService;
-import com.jt.facade.sso.service.UserService2;
 import com.jt.service.sso.dao.UserDao;
 
 @Service("userService")
@@ -26,7 +25,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	@Autowired
 	private RedisService redisService;
 	@Autowired
-	private UserService2 userService2;
+	private UserService userService;
 	
 	public static final ObjectMapper MAPPER = new ObjectMapper();
 

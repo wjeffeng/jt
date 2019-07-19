@@ -61,6 +61,7 @@ function protocolReg() {
 }
 //主注册流程
 function reg() {
+	alert(1);
 	if (isSubmit) {
 		return;
 	}
@@ -68,7 +69,7 @@ function reg() {
 	var agreeProtocol = checkReadMe();
 	var regNameok = validateRegName();
 	var passed = false;
-	var mobile = $("#phone").val();v
+	var mobile = $("#phone").val();
 	var mobileFlags = false;
 	if(closeMobileReg == 1)
 	{
@@ -101,10 +102,10 @@ function reg() {
 			mobileFlags=true;
 		}
 		isSubmit = true;
+		console.log(validateFunction.regValidate(),regNameok,agreeProtocol,mobileCodeFlag,mobileFlags);
 	    passed = validateFunction.regValidate() && regNameok && agreeProtocol
 				&& mobileCodeFlag && mobileFlags;
 	}
-	
 	if (passed) {
 		$("#registsubmit").attr({
 			"disabled" : "disabled"

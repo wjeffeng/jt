@@ -24,5 +24,4 @@
 	
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.jt.facade.sso.service.UserService" ref="userService" />
-	<dubbo:service interface="com.jt.facade.sso.service.UserService2" ref="userService2" />
 </beans>
